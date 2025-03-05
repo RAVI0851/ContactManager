@@ -25,22 +25,15 @@ const AddContact = ({setContact,Contact}) => {
     return updatedData;
  })
   }
- useEffect(()=>{
-    console.log("Contact updated");
-    let localstorageContact =  localStorage.getItem("Contact")
-  if(localstorageContact && localstorageContact!==undefined) {
-      setContact(JSON.parse(localstorageContact))
-    }
-    
- },[])
+
 
   return (
     <div className='m-3'>
         <div>
-            <form action="" className='flex items-center justify-center flex-col gap-3 '>
-                <input className='w-1/2 border p-2 rounded-b-sm' type="text" name='name'  placeholder='Enter your name' value={Name} onChange={(e)=>setName(e.target.value)} />
-                <input className='w-1/2 border p-2 rounded-b-sm ' type="text" name='email' placeholder='Enter your email id' value={email} onChange={(e)=>setEmail(e.target.value)}  />
-                <button className='bg-blue-400 rounded-xl w-[4rem] h-[2rem]' onClick={handleAddContact} >Add</button>
+            <form action="" className='flex items-center justify-center flex-col gap-3 mt-[3rem] m-[2rem]'>
+                <input className='w-1/2 border p-2 rounded-b-sm bg-gray-300 ' type="text" name='name'  placeholder='Enter your name' value={Name} onChange={(e)=>setName(e.target.value)} />
+                <input className='w-1/2 border p-2 rounded-b-sm bg-gray-300' type="text" name='email' placeholder='Enter your email id' value={email} onChange={(e)=>setEmail(e.target.value)}  />
+                <button className='bg-blue-400 rounded-xl w-[4rem] h-[2rem] hover:scale-110 ' onClick={handleAddContact} >Add</button>
             </form>
         </div>
     </div>

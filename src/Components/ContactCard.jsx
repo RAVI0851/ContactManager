@@ -10,9 +10,9 @@ const ContactCard = ({ Contact, setContact }) => {
   };
 
   return (
-    <div>
+    <div className="mt-[5rem]">
       {Contact.map((contact) => (
-        <div className="flex justify-center items-center shadow-md ">
+        <div className="flex justify-center items-center shadow-md m-[2rem] bg-gray-200 ">
           <i className="fa-solid fa-circle-user p-4 "></i>
           <div className="w-1/2">
             <h2 className="text-2xl">{contact.Name}</h2>
