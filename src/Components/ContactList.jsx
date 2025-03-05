@@ -1,11 +1,11 @@
 import React from 'react'
 import ContactCard from './ContactCard'
 
-const ContactList = ({Contact,setContact}) => {
-  
+const ContactList = () => {
+
   return (
     <div>
-      <ContactCard setContact={setContact} Contact={Contact}/>
+      <ContactCard/>
     </div>
   )
 }

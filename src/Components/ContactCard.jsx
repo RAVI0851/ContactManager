@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ContactContext } from "../Context/useContext";
 
-const ContactCard = ({ Contact, setContact }) => {
-  let handleDelete = (email) => {
+const ContactCard = () => {
+
+  const {Contact,setContact} = useContext(ContactContext)
+
+  let handleDelete = (id) => {
     setContact((prevdata) =>{
-  let filteredData= prevdata.filter((contact) => contact.email !== email)
+  let filteredData= prevdata.filter((contact) => contact.id !== id)
   localStorage.setItem("Contact",JSON.stringify(filteredData))
     return filteredData;}
     );
@@ -20,7 +24,7 @@ const ContactCard = ({ Contact, setContact }) => {
           </div>
           <i
             className="fa-solid fa-trash-can hover:cursor-pointer"
-            onClick={() => handleDelete(contact.email)}
+            onClick={() => handleDelete(contact.id)}
           ></i>
         </div>
       ))}

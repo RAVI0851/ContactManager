@@ -5,33 +5,20 @@ import Header from './Components/Header'
 import ContactList from './Components/ContactList'
 import AddContact from './Components/AddContact'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import { ContactProvider } from './Context/useContext'
 
 function App() {
 
-  const [Contact,setContact] = useState([])
-
-
-  useEffect(()=>{
-    console.log("Contact updated");
-    let localstorageContact =  localStorage.getItem("Contact")
-  if(localstorageContact && localstorageContact!==undefined) {
-      setContact(JSON.parse(localstorageContact))
-    }
-    
- },[])
- 
   return (
-    <>
+    <ContactProvider>
     <BrowserRouter>
     <Header/>
     <Routes>
-    <Route path='/' element={<AddContact setContact={setContact} Contact={Contact}/>}/>
-    <Route path='/contactList'element={<ContactList Contact={Contact} setContact={setContact}/>}/>
+    <Route path='/' element={<AddContact/>}/>
+    <Route path='/contactList'element={<ContactList/>}/>
     </Routes>
-    
     </BrowserRouter>
-      
-    </>
+    </ContactProvider>
   )
 }
 
